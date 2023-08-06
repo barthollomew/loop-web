@@ -10,8 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <NavBar />
-      <h1>Welcome to My App!</h1>
-      <p>This is a simple React app with user authentication and a landing page.</p>
+      <h1>Test!</h1>
       <Footer />
     </div>
   );
