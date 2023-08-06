@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f3f4f6;
+  }
+  
+  .logo-section {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .avatar-section {
+    position: absolute;
+    right: 1rem;
+  }
+  
+  .logo {
+    height: 3rem;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    height: 2.5rem;
+    cursor: pointer;
+  }
+  
