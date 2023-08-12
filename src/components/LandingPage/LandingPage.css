@@ -1,0 +1,35 @@
+.landing-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-section {
+    width: 80%; /* Adjust the width as per your needs */
+}
+
+.carousel-section {
+    width: 80%;
+}
+
+.movie-card {
+    width: 45%;
+    position: relative;
+}
+
+.btn-view-movies {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-view-movies:hover {
+    background-color: #2563eb; /* Adjust the hover color as needed */
+}
+
+.promo-section {
+    width: 80%;
+    text-align: center;
+    border: 2px solid navy; /* Add a border to the promo section */
+    border-radius: 8px;
+}
