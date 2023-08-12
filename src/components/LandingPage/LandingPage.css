@@ -3,14 +3,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem; /* Vertical spacing between sections */
 }
 
 .intro-section {
     width: 80%; /* Adjust the width as per your needs */
+    display: flex;
+    gap: 2rem; /* Spacing between text and logo section */
 }
 
 .carousel-section {
     width: 80%;
+    display: flex;
+    gap: 2rem; /* Spacing between movie cards */
 }
 
 .movie-card {
@@ -32,4 +37,5 @@
     text-align: center;
     border: 2px solid navy; /* Add a border to the promo section */
     border-radius: 8px;
+    padding: 1rem; /* Added some padding inside the promo section for breathing space */
 }
