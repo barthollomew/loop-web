@@ -1,29 +1,66 @@
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f3f4f6;
-  }
-  
-  .logo-section {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .avatar-section {
-    position: absolute;
-    right: 1rem;
-  }
-  
-  .logo {
-    height: 3rem;
-    cursor: pointer;
-  }
-  
-  .avatar {
-    height: 2.5rem;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Increase padding for bigger header */
+  background-color: #ffffff;
+  position: relative; 
+  height: 5rem; /* Increase the height of the header */
+}
+
+.logo-section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* This will center the logo both vertically and horizontally */
+}
+
+.avatar-section {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center avatar */
+}
+
+.actions-section {
+  position: absolute;
+  right: 4rem;  /* Move this closer to avatar */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center buttons */
+}
+
+.logo {
+  height: 2.5rem; /* Adjusting logo size if needed */
+  cursor: pointer;
+}
+
+.avatar {
+  height: 3rem; /* Adjusting avatar size if needed */
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background-color: transparent; /* Remove backgrounds for the buttons */
+  transition: color 0.3s;
+}
+
+.btn-signin {
+  color: #3B82F6; /* Tailwind's blue-500 */
+}
+
+.btn-signin:hover {
+  color: #2563EB; /* Tailwind's blue-600 */
+}
+
+.btn-signup {
+  color: #9CA3AF; /* Tailwind's gray-400 */
+}
+
+.btn-signup:hover {
+  color: #6B7280; /* Tailwind's gray-600 */
+}
