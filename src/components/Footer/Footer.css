@@ -1,12 +1,54 @@
-/* Footer.css */
 .footer {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    background-color: #f3f4f6;
-    color: #111827;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f3f4f6;
+  color: #111827;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-logo-section, .footer-links-section, .footer-social-section {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+}
+
+.footer-logo-section {
+  align-items: center; /* Centers logo horizontally */
+}
+
+.footer-links-section, .footer-social-section {
+  align-items: flex-start; /* Left align items in columns */
+  padding-left: 0rem; /* Adjust padding as needed */
+}
+
+.footer-social-section {
+  padding-right: 8rem; /* Added padding to the right */
+}
+
+.footer-logo {
+  height: 8rem;  /* Increased height for the logo */
+}
+
+.footer-subtitle {
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Adjust space between subtitle and links as needed */
+}
+
+.footer-link {
+  color: #111827;
+  margin: 0.5rem 0; /* Adjust vertical margin between links */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;  /* Reduced font size for the links */
+}
+
+.footer-link:hover {
+  color: #bada55;
+}
+
+/* Add additional styling for the social media icons/links here when you have them */
