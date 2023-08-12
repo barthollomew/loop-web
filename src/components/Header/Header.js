@@ -6,7 +6,7 @@ const Header = () => {
     <div className="header">
       <div className="logo-section">
         <a href="/logoPage">
-          <img src="logo.svg" alt="Logo" className="logo" />
+        <img src={process.env.PUBLIC_URL + '/logos/logo.svg'} alt="Logo" className="logo" />
         </a>
       </div>
 
@@ -17,7 +17,7 @@ const Header = () => {
 
       <div className="avatar-section">
         <a href="/avatarPage">
-          <img src="avatar.svg" alt="Avatar" className="avatar" />
+          <img src={process.env.PUBLIC_URL + '/logos/avatar.svg'} alt="Avatar" className="avatar" />
         </a>
       </div>
     </div>

@@ -7,7 +7,7 @@ const Footer = () => {
 
       {/* First Column */}
       <div className="footer-logo-section">
-        <img src="logo2.svg" alt="Logo" className="footer-logo" />
+        <img src={process.env.PUBLIC_URL + '/logos/logo2.svg'} alt="Logo" className="footer-logo" />
       </div>
 
       {/* Second Column */}
