@@ -1,0 +1,26 @@
+.promotion-container {
+    padding: 2rem;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 2rem; /* Added margin to separate it from the above section */
+    width: 80%; /* Adjust width as per your design */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.promotion-image {
+    width: 100px; /* You can adjust this */
+    margin: 0 auto;
+}
+
+.promotion-title {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.promotion-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+}

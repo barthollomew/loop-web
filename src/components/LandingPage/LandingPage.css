@@ -1,41 +1,9 @@
-.landing-page {
-    width: 100%;
+.landing-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem; /* Vertical spacing between sections */
-}
-
-.intro-section {
-    width: 80%; /* Adjust the width as per your needs */
-    display: flex;
-    gap: 2rem; /* Spacing between text and logo section */
-}
-
-.carousel-section {
-    width: 80%;
-    display: flex;
-    gap: 2rem; /* Spacing between movie cards */
-}
-
-.movie-card {
-    width: 45%;
-    position: relative;
-}
-
-.btn-view-movies {
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-view-movies:hover {
-    background-color: #2563eb; /* Adjust the hover color as needed */
-}
-
-.promo-section {
-    width: 80%;
-    text-align: center;
-    border: 2px solid navy; /* Add a border to the promo section */
-    border-radius: 8px;
-    padding: 1rem; /* Added some padding inside the promo section for breathing space */
+    align-items: center; /* Center content horizontally */
+    justify-content: space-between; /* Space out your components evenly, if there's space available */
+    gap: 2rem; /* Give some gap between each section */
+    padding: 2rem 0; /* Provide some padding on top and bottom for breathing space */
+    margin-bottom: 50px; /* Assuming your footer is 80px in height */
 }

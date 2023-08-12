@@ -5,10 +5,8 @@
   padding: 1rem;
   background-color: #f3f4f6;
   color: #111827;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
+
 
 .footer-logo-section, .footer-links-section, .footer-social-section {
   flex: 1; 
