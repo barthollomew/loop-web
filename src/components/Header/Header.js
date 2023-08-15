@@ -15,7 +15,9 @@ const Header = () => {
         <Link to="/signIn"> {/* Use Link instead of anchor tag */}
           <button className="btn btn-signin mr-4">Sign In</button>
         </Link>
-        <button className="btn btn-signup mr-4">Sign Up</button>
+        <Link to="/signUp"> {/* Use Link instead of anchor tag */}
+          <button className="btn btn-signup mr-4">Sign Up</button>
+        </Link>
       </div>
 
       <div className="avatar-section">
