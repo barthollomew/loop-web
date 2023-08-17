@@ -1,0 +1,68 @@
+.profile-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* High z-index to ensure it overlays everything else */
+  }
+  
+  .profile-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    max-width: 400px; /* Or any preferred max width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind's default shadow */
+    text-align: center;
+  }
+  
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-email {
+    color: #6B7280; /* Tailwind's gray-600 */
+    margin-bottom: 1rem;
+  }
+  
+  .profile-joined {
+    color: #6B7280; /* Tailwind's gray-600 */
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .btn-edit {
+    background-color: #3B82F6; /* blue-500 */
+    color: #fff;
+  }
+  
+  .btn-delete {
+    background-color: #EF4444; /* red-500 */
+    color: #fff;
+    margin-left: 1rem;
+  }
+  
+  .btn-profilePage {
+    background-color: #10B981; /* green-500 */
+    color: #fff;
+  }
