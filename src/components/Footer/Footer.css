@@ -12,29 +12,29 @@
   flex: 1; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
+  justify-content: center; 
 }
 
 .footer-logo-section {
-  align-items: center; /* Centers logo horizontally */
+  align-items: center; 
 }
 
 .footer-links-section, .footer-social-section {
-  align-items: flex-start; /* Left align items in columns */
-  padding-left: 0rem; /* Adjust padding as needed */
+  align-items: flex-start; 
+  padding-left: 0rem; 
 }
 
 .footer-social-section {
-  padding-right: 8rem; /* Added padding to the right */
+  padding-right: 8rem; 
 }
 
 .footer-logo {
-  height: 8rem;  /* Increased height for the logo */
+  height: 8rem;
 }
 
 .footer-subtitle {
   font-weight: bold;
-  margin-bottom: 0.5rem; /* Adjust space between subtitle and links as needed */
+  margin-bottom: 0.5rem; 
 }
 
 .footer-link {
@@ -48,5 +48,3 @@
 .footer-link:hover {
   color: #bada55;
 }
-
-/* Add additional styling for the social media icons/links here when you have them */

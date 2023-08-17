@@ -2,40 +2,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem; /* Increase padding for bigger header */
+  padding: 2rem;
   background-color: #ffffff;
   position: relative; 
-  height: 5rem; /* Increase the height of the header */
+  height: 5rem; 
 }
 
 .logo-section {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); /* This will center the logo both vertically and horizontally */
+  transform: translate(-50%, -50%); 
 }
 
 .avatar-section {
   position: absolute;
   right: 1rem;
   top: 50%;
-  transform: translateY(-50%); /* Vertically center avatar */
+  transform: translateY(-50%); 
 }
 
 .actions-section {
   position: absolute;
-  right: 4rem;  /* Move this closer to avatar */
+  right: 4rem; 
   top: 50%;
-  transform: translateY(-50%); /* Vertically center buttons */
+  transform: translateY(-50%); 
 }
 
 .logo {
-  height: 2.5rem; /* Adjusting logo size if needed */
+  height: 2.5rem;
   cursor: pointer;
 }
 
 .avatar {
-  height: 3rem; /* Adjusting avatar size if needed */
+  height: 3rem; 
   cursor: pointer;
 }
 
@@ -45,7 +45,7 @@
   font-weight: 500;
   cursor: pointer;
   border: none;
-  background-color: transparent; /* Remove backgrounds for the buttons */
+  background-color: transparent; 
   transition: color 0.3s;
 }
 
