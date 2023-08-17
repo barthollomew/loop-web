@@ -8,7 +8,7 @@ const SignUpForm = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        // Add your sign-up logic here using the provided data
+
         console.log("Username:", username);
         console.log("Email:", email);
         console.log("Password:", password);

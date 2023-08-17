@@ -1,19 +1,13 @@
 import React from 'react';
+import './WelcomeSection.css';
 
 const WelcomeSection = () => {
     return (
-        <div className="flex justify-between items-center p-10 bg-white shadow-md rounded-lg">
-            {/* Left: Welcome Text */}
-            <div className="text-left mr-10">
-                <h1 className="text-4xl font-bold mb-4">Welcome to Loop Web!</h1>
-                <p className="text-xl">Experience unforgettable movie magic!</p>
-            </div>
-            
-            {/* Right: View Movies Button */}
-            <div>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                    View Movies
-                </button>
+        <div className="carousel-container">
+            <img src="/images/interstellar.jpg" alt="Movie Background" className="carousel-image"/> 
+            <div className="carousel-content">
+                <h1 className="movie-title">Interstellar</h1>
+                <button className="book-now-button">Book Now</button>
             </div>
         </div>
     );

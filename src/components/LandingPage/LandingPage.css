@@ -1,4 +1,5 @@
 .landing-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */

@@ -1,7 +1,7 @@
 .carousel-container {
     width: 90%;
     margin: 0 auto;
-    padding: 2rem 0 4rem;  /* Added bottom padding */
+    padding: 2rem 0 4rem; 
   }
   
   .carousel-title {
@@ -18,7 +18,7 @@
   
   .movie-card img {
     width: 100%;
-    height: auto;  /* Ensure the image scales with the width */
+    height: auto;  
     border-radius: 8px;
   }
   

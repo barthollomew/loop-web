@@ -6,6 +6,8 @@ import Footer from './components/Footer/Footer';
 import SignInPage from './components/SignInForm/SignInForm';
 import SignUpPage from './components/SignUpForm/SignUpForm';
 import LandingPage from './components/LandingPage/LandingPage';
+import ProfilePage from './components/Profile/ProfilePage/ProfilePage';
+import Movies from './components/Movies/Movies';  
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path='/' element={<LandingPage />} />
           <Route path='/signIn' element={<SignInPage />} />
           <Route path='/signUp' element={<SignUpPage />} />
+          <Route path='/Profile/ProfilePage' element={<ProfilePage />} />
+          <Route path='/movies' element={<Movies />} /> 
         </Routes>
         <Footer />
       </div>

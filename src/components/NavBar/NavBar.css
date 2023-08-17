@@ -1,19 +1,19 @@
 .navbar {
   background-color: #ffffff;  /* Set the background to white */
-  color: #001f3f;  /* Navy color for the text */
-  padding: 1rem 5rem;  /* Add left and right padding */
+  color: #001f3f;  
+  padding: 1rem 5rem;  
   display: flex; 
   justify-content: space-between; 
   align-items: center;
 }
 
 .navbar-link {
-  color: #001f3f;  /* Navy color for the links */
+  color: #001f3f;
   text-decoration: none;
   transition: all 0.3s ease;
   margin: 0 1rem;
 }
 
 .navbar-link:hover {
-  color: #bada55;  /* This will still turn to a greenish color on hover, let me know if you'd like a different hover effect */
+  color: #bada55; 
 }

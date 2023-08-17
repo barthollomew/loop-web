@@ -23,7 +23,7 @@ const CarouselSection = () => {
 
   return (
     <div className="carousel-container">
-      <h2 className="carousel-title">Featured Movies</h2>
+      <h2 className="carousel-title">Now Showing</h2>
       <Slider {...settings}>
         {movies.map((movie, index) => (
           <div className="movie-card" key={index}>
