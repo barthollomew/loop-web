@@ -8,6 +8,7 @@ import SignUpPage from './components/SignUpForm/SignUpForm';
 import LandingPage from './components/LandingPage/LandingPage';
 import ProfilePage from './components/Profile/ProfilePage/ProfilePage';
 import Movies from './components/Movies/Movies';  
+import Reviews from './components/Reviews/Reviews'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/signUp' element={<SignUpPage />} />
           <Route path='/Profile/ProfilePage' element={<ProfilePage />} />
           <Route path='/movies' element={<Movies />} /> 
+          <Route path="/reviews" element={<Reviews />} />
         </Routes>
         <Footer />
       </div>

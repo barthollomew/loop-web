@@ -1,32 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import './ProfilePage.css';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {  
     const [isEditing, setIsEditing] = useState(false);
-    const [showDeletePopup, setShowDeletePopup] = useState(false);
+    const [showDeletePopup] = useState(false);
     const [user, setUser] = useState({
         name: 'User Name Placeholder',
         email: 'emailplaceholder@gmail.com'
     });
     const [editedName, setEditedName] = useState(user.name);
     const [editedEmail, setEditedEmail] = useState(user.email);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("currentUser") || '{}');
         setUser(currentUser);
+        setEditedName(currentUser.name || 'User Name Placeholder');
+        setEditedEmail(currentUser.email || 'emailplaceholder@gmail.com');
     }, []);
+    
 
     const handleSave = () => {
         const updatedUser = { ...user, name: editedName, email: editedEmail };
+        
+        // Update the local storage for currentUser
         localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    
         const users = JSON.parse(localStorage.getItem("users") || "[]");
         const updatedUsers = users.map(u => u.username === user.username ? updatedUser : u);
         localStorage.setItem("users", JSON.stringify(updatedUsers));
+        
+        // Update the user state so that the display reflects the new name and email
+        setUser(updatedUser);
+    
         setIsEditing(false);
     };
 
     const handleDelete = () => {
-        setShowDeletePopup(true);
+        const confirmation = window.confirm("Are you sure you want to delete your profile?");
+        if (confirmation) {
+            confirmDelete();
+        }
     };
 
     const confirmDelete = () => {
@@ -34,7 +49,9 @@ const ProfilePage = () => {
         const filteredUsers = users.filter(u => u.username !== user.username);
         localStorage.setItem("users", JSON.stringify(filteredUsers));
         localStorage.removeItem("currentUser");
-        setShowDeletePopup(false);
+    
+        // Redirect the user to the sign-up page or any other page you wish after deletion.
+        navigate("/"); 
     };
 
     return (

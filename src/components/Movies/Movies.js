@@ -1,11 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import './Movies.css';
+import ReviewModal from '../Reviews/ReviewModal';
 
 const Movies = () => {
     const [selectedDay, setSelectedDay] = useState(null);
     const [selectedCinema, setSelectedCinema] = useState(null);
 
+    const [showReviewModal, setShowReviewModal] = useState(false);
+    const [currentMovieForReview, setCurrentMovieForReview] = useState('');
+
+    const handleOpenReview = (movieTitle) => {
+        setCurrentMovieForReview(movieTitle);
+        setShowReviewModal(true);
+    };
+
+    const isUserAuthenticated = () => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        return Boolean(currentUser.name); 
+    }
+
+    const navigate = useNavigate();
+
+    const handleReviewClick = (movieTitle) => {
+        if (isUserAuthenticated()) {
+            handleOpenReview(movieTitle);
+        } else {
+            navigate("/SignIn");
+        }
+    }
+
+    
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     const cinemas = ["Cinema 1", "Cinema 2", "Cinema 3"];
     const movies = [
@@ -53,27 +78,35 @@ const Movies = () => {
                     </div>
                 )}
 
-                {selectedCinema && (
-                    <div className="movie-list grid gap-4">
-                        {movies.map(movie => (
-                            <div key={movie.title} className="movie p-4 bg-gray-200 rounded shadow">
-                                <img src={movie.imgSrc} alt={movie.title} className="movie-image mb-4" />
-                                <h2 className="movie-title mb-4">{movie.title}</h2>
-                                <div className="session-times flex gap-4">
-                                    {movie.sessionTimes.map(time => (
-                                        <Link key={time} to="/SeatSelection">  
-                                            <span className="time p-2 bg-blue-500 text-white rounded cursor-pointer">
-                                                {time}
-                                            </span>
-                                        </Link>
-                                    ))}
+                    {selectedCinema && (
+                        <div className="movie-list grid gap-4">
+                            {movies.map(movie => (
+                                <div key={movie.title} className="movie p-4 bg-gray-200 rounded shadow">
+                                    <img src={movie.imgSrc} alt={movie.title} className="movie-image mb-4" />
+                                    <h2 className="movie-title mb-4">{movie.title}</h2>
+                                    <div className="session-times flex gap-4">
+                                        {movie.sessionTimes.map(time => (
+                                            <Link key={time} to="/SeatSelection">  
+                                                <span className="time p-2 bg-blue-500 text-white rounded cursor-pointer">
+                                                    {time}
+                                                </span>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                    <button onClick={() => handleReviewClick(movie.title)}>Leave a Review</button>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
+                            ))}
+                        </div>
+                    )}
+                    {/* Review Modal */}
+                    {showReviewModal && (
+                        <ReviewModal 
+                            movieTitle={currentMovieForReview} 
+                            onClose={() => setShowReviewModal(false)} 
+                        />
+                    )}
             </div>
-        </div>
+        </div>       
     );
 }
 

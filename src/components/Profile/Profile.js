@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import './Profile.css';
+import { deleteUserReviews } from '../Reviews/Reviews';
 
 const Profile = ({ onClose }) => {  
     const profileRef = useRef(null);
+
 
     const [user, setUser] = useState({
         name: 'User Name Placeholder',
@@ -30,6 +32,18 @@ const Profile = ({ onClose }) => {
         };
     }, [onClose]);
 
+    const handleDeleteProfile = () => {
+        // Remove user's reviews
+        deleteUserReviews(user.name);
+        
+        // Delete user from local storage
+        localStorage.removeItem('currentUser');
+        
+        // Close profile popup and give feedback (e.g., redirect or show a message)
+        onClose();
+        alert('Profile Deleted!'); 
+    }
+    
     return (
         <div className="profile-popup" ref={profileRef}>
             <div className="profile-content">
@@ -39,6 +53,9 @@ const Profile = ({ onClose }) => {
                 <p className="profile-joined">Joined on {new Date(user.joinedDate || Date.now()).toLocaleDateString()}</p>
 
                 <Link to="/Profile/ProfilePage" className="btn btn-profilePage mt-4">Go to Profile Page</Link>
+                <button className="btn btn-deleteProfile mt-4" onClick={handleDeleteProfile}>Delete Profile</button>
+
+
             </div>
         </div>
     );
