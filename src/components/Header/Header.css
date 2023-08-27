@@ -50,17 +50,17 @@
 }
 
 .btn-signin {
-  color: #3B82F6; /* Tailwind's blue-500 */
+  color: #3B82F6; 
 }
 
 .btn-signin:hover {
-  color: #2563EB; /* Tailwind's blue-600 */
+  color: #2563EB;
 }
 
 .btn-signup {
-  color: #9CA3AF; /* Tailwind's gray-400 */
+  color: #9CA3AF; 
 }
 
 .btn-signup:hover {
-  color: #6B7280; /* Tailwind's gray-600 */
+  color: #6B7280;
 }

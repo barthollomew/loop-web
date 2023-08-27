@@ -6,8 +6,8 @@ const ProfilePage = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [showDeletePopup] = useState(false);
     const [user, setUser] = useState({
-        name: 'User Name Placeholder',
-        email: 'emailplaceholder@gmail.com'
+        name: '',
+        email: ''
     });
     const [editedName, setEditedName] = useState(user.name);
     const [editedEmail, setEditedEmail] = useState(user.email);
@@ -16,8 +16,8 @@ const ProfilePage = () => {
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("currentUser") || '{}');
         setUser(currentUser);
-        setEditedName(currentUser.name || 'User Name Placeholder');
-        setEditedEmail(currentUser.email || 'emailplaceholder@gmail.com');
+        setEditedName(currentUser.name || '');
+        setEditedEmail(currentUser.email || '');
     }, []);
     
 
@@ -66,8 +66,8 @@ const ProfilePage = () => {
                 </div>
             ) : (
                 <div className="display-section">
-                    <h1>{user.name || 'User Name Placeholder'}</h1>
-                    <p>{user.email || 'emailplaceholder@gmail.com'}</p>
+                    <h1>{user.name || ''}</h1>
+                    <p>{user.email || ''}</p>
                     <button onClick={() => setIsEditing(true)} className="btn btn-edit">Edit</button>
                     <button onClick={handleDelete} className="btn btn-delete">Delete</button>
                 </div>
