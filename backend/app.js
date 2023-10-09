@@ -9,6 +9,8 @@ import './models/models.js';
 import './models/review.js';
 import './models/user.js';
 
+import Movie from './models/models.js';
+
 const app = express();
 
 app.use(express.json());
@@ -23,15 +25,22 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-// Reset the database and sync models globally
-sequelize.sync({ force: true })
+// Sync the movie model first
+Movie.sync()
   .then(() => {
-    console.log('Database reset and synced');
-    // Start your server here
+    console.log('Movie table synced');
+
+    // Then sync all other models
+    return sequelize.sync();
+  })
+  .then(() => {
+    console.log('All other tables synced');
+    // Start your server or any subsequent tasks here
   })
   .catch(err => {
     console.error('Error syncing database:', err);
   });
+
 
 // API Routes
 app.use("/api/movies", movieRoutes);
