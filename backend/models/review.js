@@ -1,7 +1,7 @@
 // models/review.js
 
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+import { Sequelize, DataTypes } from 'sequelize';
+import sequelize from '../config/database.js';
 
 const Review = sequelize.define('Review', {
     movieId: {
@@ -27,4 +27,4 @@ const Review = sequelize.define('Review', {
     // Add other fields as needed
 });
 
-module.exports = Review;
+export { Review };

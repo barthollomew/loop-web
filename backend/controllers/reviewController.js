@@ -1,6 +1,8 @@
-const { Review } = require('./models');  // Assuming you have a Review model defined in models.js
+// reviewController.js
 
-exports.createReview = async (req, res) => {
+import { Review } from '../models/review.js';  // Adjusted to ES6 syntax
+
+export const createReview = async (req, res) => { // Adjusted to ES6 syntax
   const { movieTitle, userName, comment, rating } = req.body;
 
   try {

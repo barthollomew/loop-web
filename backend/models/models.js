@@ -1,7 +1,5 @@
-// models/movie.js
-
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+import { Sequelize, DataTypes } from 'sequelize';
+import sequelize from '../config/database.js';
 
 const Movie = sequelize.define('Movie', {
     title: {
@@ -15,4 +13,4 @@ const Movie = sequelize.define('Movie', {
     // Add other fields as needed
 });
 
-module.exports = Movie;
+export default Movie;

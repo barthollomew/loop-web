@@ -7,37 +7,33 @@ const SignUpPage = () => {
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
-    const handleSignUp = () => {
+    const handleSignUp = async () => {
         const usernameRegex = /^[a-zA-Z0-9]{5,20}$/;
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     
-        if (!usernameRegex.test(username)) {
-            alert("Invalid username. Usernames should be 5-20 characters long and contain only alphanumeric characters.");
-            return;
-        }
-        if (!passwordRegex.test(password)) {
-            alert("Invalid password. Passwords should be at least 8 characters long, contain an uppercase letter, lowercase letter, number, and special character.");
-            return;
-        }
-        if (!emailRegex.test(email)) {
-            alert("Invalid email format.");
-            return;
-        }
+        try {
+            const response = await fetch("http://localhost:3000/api/users/signup", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password, email }),
+            });
     
-        const users = JSON.parse(localStorage.getItem("users") || "[]");
-        if (users.some(user => user.username === username)) {
-            alert("Username already exists");
-            return;
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error);
+            }
+    
+            const data = await response.json();
+            localStorage.setItem("currentUser", JSON.stringify(data.user));
+            alert(data.message);
+            navigate("/Profile/ProfilePage");
+        } catch (error) {
+            alert(error.message);
         }
-    
-        const newUser = { username, password, name: username, email: email };
-        localStorage.setItem("users", JSON.stringify([...users, newUser]));
-        localStorage.setItem("currentUser", JSON.stringify(newUser));
-    
-        alert("Successfully signed up!");
-        navigate("/Profile/ProfilePage");
-    };    
+    }; 
 
     return (
 

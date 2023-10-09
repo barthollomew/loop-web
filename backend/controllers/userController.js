@@ -1,7 +1,8 @@
-const User = require('../models/user');
+// userController.js
 
+import User from '../models/user.js';
 
-exports.signIn = async (req, res) => {
+export const signIn = async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -16,7 +17,7 @@ exports.signIn = async (req, res) => {
   }
 };
 
-exports.signUp = async (req, res) => {
+export const signUp = async (req, res) => {
   const { username, password, email } = req.body;
 
   try {
@@ -26,9 +27,9 @@ exports.signUp = async (req, res) => {
     }
     
     const newUser = await User.create({ username, password, email });
-    // Add session management, token generation, etc. here
     res.status(201).json({ message: 'Successfully signed up', user: newUser });
   } catch (err) {
+    console.error("Error during sign-up:", err); // Log the error for debugging
     res.status(500).json({ error: 'Server error' });
   }
 };

@@ -7,20 +7,30 @@ const SignInPage = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSignIn = () => {
-        const users = JSON.parse(localStorage.getItem("users") || "[]");
-        const user = users.find(user => user.username === username);
-
-        if (!user || user.password !== password) {
-            alert("Incorrect username or password");
-            return;
+    const handleSignIn = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/api/users/signin", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+    
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error);
+            }
+    
+            const data = await response.json();
+            localStorage.setItem("currentUser", JSON.stringify(data.user));
+            alert(data.message);
+            navigate("/Profile/ProfilePage");
+        } catch (error) {
+            alert(error.message);
         }
-
-        localStorage.setItem("currentUser", JSON.stringify(user));
-
-        alert("Successfully signed in!");
-        navigate("/Profile/ProfilePage");
     };
+    
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
