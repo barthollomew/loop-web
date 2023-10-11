@@ -57,8 +57,9 @@ const Movies = () => {
   };
 
   const filteredMovies = movies.filter(
-    (movie) => movie.showings[selectedDay]?.[selectedCinema]
-  );
+    (movie) => movie.showings && movie.showings[selectedDay]?.[selectedCinema]
+);
+
 
   return (
     <div className="pt-16 pb-16 text-center">

@@ -45,14 +45,21 @@ const ProfilePage = () => {
     };
 
     const confirmDelete = () => {
-        const users = JSON.parse(localStorage.getItem("users") || []);
-        const filteredUsers = users.filter(u => u.username !== user.username);
-        localStorage.setItem("users", JSON.stringify(filteredUsers));
-        localStorage.removeItem("currentUser");
-    
-        // Redirect the user to the sign-up page or any other page you wish after deletion.
-        navigate("/"); 
+        fetch(`/api/users/delete/${user.username}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'User deleted successfully') {
+                localStorage.removeItem("currentUser");
+                navigate("/");
+            } else {
+                console.error("Error deleting user:", data.error);
+            }
+        })
+        .catch(err => console.error("API call failed:", err));
     };
+    
 
     return (
         <div className="profile-page">

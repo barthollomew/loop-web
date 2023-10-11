@@ -1,3 +1,5 @@
+import cors from 'cors';
+
 import express from 'express';
 import userRoutes from './routes/userRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
@@ -10,8 +12,13 @@ import './models/review.js';
 import './models/user.js';
 
 import Movie from './models/models.js';
+import { Review } from './models/review.js';
+import User from './models/user.js';
 
 const app = express();
+
+// Use CORS middleware
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,17 +33,13 @@ sequelize.authenticate()
     });
 
 // Sync the models in order of creation
-Cinema.sync().then(() => {
-  Users.sync().then(() => {
-      Movie.sync().then(() => {
-          Review.sync().then(() => {
-              Showing.sync().then(() => {
-                  console.log("All tables created!");
-              });
-          });
-      });
+User.sync().then(() => {
+    Movie.sync().then(() => {
+        Review.sync().then(() => {
+            console.log("All tables created!");
+        });
+    });
   });
-});
 
 
 

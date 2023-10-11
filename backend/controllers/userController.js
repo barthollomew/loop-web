@@ -33,3 +33,20 @@ export const signUp = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const { username } = req.params;
+  
+  try {
+      const userToDelete = await User.findOne({ where: { username } });
+      if (!userToDelete) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+
+      await userToDelete.destroy();
+      res.status(200).json({ message: 'User deleted successfully' });
+  } catch (err) {
+      console.error("Error during user deletion:", err);
+      res.status(500).json({ error: 'Server error' });
+  }
+};
