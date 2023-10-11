@@ -8,10 +8,10 @@ const Review = sequelize.define('Review', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'movies', // Should match the table name if using Sequelize sync
+            model: 'Movie',  
             key: 'id'
         }
-    },
+    },    
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false

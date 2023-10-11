@@ -25,21 +25,19 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-// Sync the movie model first
-Movie.sync()
-  .then(() => {
-    console.log('Movie table synced');
-
-    // Then sync all other models
-    return sequelize.sync();
-  })
-  .then(() => {
-    console.log('All other tables synced');
-    // Start your server or any subsequent tasks here
-  })
-  .catch(err => {
-    console.error('Error syncing database:', err);
+// Sync the models in order of creation
+Cinema.sync().then(() => {
+  Users.sync().then(() => {
+      Movie.sync().then(() => {
+          Review.sync().then(() => {
+              Showing.sync().then(() => {
+                  console.log("All tables created!");
+              });
+          });
+      });
   });
+});
+
 
 
 // API Routes
