@@ -8,3 +8,4 @@ const sequelize = new Sequelize('s3948938_fwp_a2', 's3948938_fwp_a2', 'abc123', 
 });
 
 export default sequelize;
+  

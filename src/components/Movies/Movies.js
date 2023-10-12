@@ -19,6 +19,7 @@ const Movies = () => {
     "Sunday",
   ];
   const cinemas = ["Williamstown", "Melbourne Central", "West Footscray"];
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -26,8 +27,12 @@ const Movies = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        const data = await response.json();
-        setMovies(data);
+        const moviesData = await response.json();
+    
+        // Set the movies data directly to state
+        setMovies(moviesData);
+    
+        console.log(movies);
       } catch (error) {
         console.error("Error fetching data: ", error);
         // Consider setting an error state here to inform the user
@@ -35,6 +40,8 @@ const Movies = () => {
     };
     fetchMovies();
   }, []);
+  
+  
 
   const navigate = useNavigate();
 
@@ -101,49 +108,44 @@ const Movies = () => {
 
         {selectedDay && selectedCinema && (
           <div className="grid gap-4">
-            {movies.filter(
-              (movie) => movie.showings[selectedDay]?.[selectedCinema]
-            ).length > 0 ? (
-              movies
-                .filter(
-                  (movie) => movie.showings[selectedDay]?.[selectedCinema]
-                )
-                .map((movie) => {
-                  const showings = movie.showings[selectedDay][selectedCinema];
-                  return (
-                    <div
-                      key={movie.title}
-                      className="p-4 bg-gray-200 rounded shadow-lg hover:shadow-md transition-shadow duration-300"
-                    >
-                      <img
-                        src={process.env.PUBLIC_URL + "/images/" + movie.imgSrc}
-                        alt={movie.title}
-                        className="mx-auto w-32 h-32 object-cover rounded mb-4"
-                      />
-                      <h2 className="text-xl font-bold mb-4">{movie.title}</h2>
-                      <div className="flex gap-4">
-                        {showings.map((time) => (
-                          <Link key={time} to="/SeatSelection">
-                            <span className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-700 transition-colors duration-300">
-                              {time}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                      <button
-                        onClick={() => handleReviewClick(movie.title)}
-                        className="mt-2 bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-700 transition-colors duration-300"
-                      >
-                        Leave a Review
-                      </button>
+            {filteredMovies.length > 0 ? (
+              filteredMovies.map((movie) => {
+                const showings = movie.showings[selectedDay][selectedCinema];
+                return (
+                  <div
+                    key={movie.title}
+                    className="p-4 bg-gray-200 rounded shadow-lg hover:shadow-md transition-shadow duration-300"
+                  >
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/" + movie.imgSrc}
+                      alt={movie.title}
+                      className="mx-auto w-32 h-32 object-cover rounded mb-4"
+                    />
+                    <h2 className="text-xl font-bold mb-4">{movie.title}</h2>
+                    <div className="flex gap-4">
+                      {showings.map((time) => (
+                        <Link key={time} to="/SeatSelection">
+                          <span className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-700 transition-colors duration-300">
+                            {time}
+                          </span>
+                        </Link>
+                      ))}
                     </div>
-                  );
-                })
+                    <button
+                      onClick={() => handleReviewClick(movie.title)}
+                      className="mt-2 bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-700 transition-colors duration-300"
+                    >
+                      Leave a Review
+                    </button>
+                  </div>
+                );
+              })
             ) : (
               <p>No movies showing on this day.</p>
             )}
           </div>
         )}
+
 
         {showReviewModal && (
           <ReviewModal
