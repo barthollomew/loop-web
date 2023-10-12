@@ -30,9 +30,13 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    const storedReviews = JSON.parse(localStorage.getItem('reviews') || '[]');
-    setReviews(storedReviews);
-  }, []);
+    // Fetch reviews from the API instead of local storage
+    fetch('/api/reviews')  // Modify with your API endpoint
+    .then(response => response.json())
+    .then(data => setReviews(data))
+    .catch(error => console.error('Error fetching reviews:', error));
+}, []);
+
 
   return (
     <div className="reviews-container">

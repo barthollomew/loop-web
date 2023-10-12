@@ -13,8 +13,8 @@ const ReviewModal = ({ movieTitle, onClose }) => {
             return;
         }
 
-        if (comments.length > 250) {
-            alert("Review comments length cannot exceed 250 characters.");
+        if (comments.length > 600) {  // Increase limit to 600 characters
+            alert("Review comments length cannot exceed 600 characters.");
             return;
         }
 
@@ -59,7 +59,7 @@ const ReviewModal = ({ movieTitle, onClose }) => {
                     placeholder="Your comments..."
                     value={comments}
                     onChange={(e) => setComments(e.target.value)}
-                    rows="5"
+                    rows="10"  // Increase the visible rows for better user experience
                 ></textarea>
 
                 <button onClick={handleReviewSubmit}>Submit Review</button>

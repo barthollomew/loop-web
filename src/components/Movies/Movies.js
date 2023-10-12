@@ -32,7 +32,6 @@ const Movies = () => {
         // Set the movies data directly to state
         setMovies(moviesData);
     
-        console.log(movies);
       } catch (error) {
         console.error("Error fetching data: ", error);
         // Consider setting an error state here to inform the user
