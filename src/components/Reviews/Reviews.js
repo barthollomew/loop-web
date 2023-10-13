@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ReviewModal from './ReviewModal';
 import './Reviews.css';
 
 export const deleteUserReviews = (userName) => {
@@ -11,6 +12,7 @@ export const deleteUserReviews = (userName) => {
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const [showModal, setShowModal] = useState(false);
 
   const handleDeleteReview = (index) => {
     const updatedReviews = [...reviews];
@@ -29,21 +31,24 @@ const Reviews = () => {
     }
   };
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   useEffect(() => {
-    // Fetch reviews from the API instead of local storage
-    fetch('/api/reviews')  // Modify with your API endpoint
+    fetch('/api/users/auth')
     .then(response => response.json())
-    .then(data => setReviews(data))
-    .catch(error => console.error('Error fetching reviews:', error));
+    .then(data => setLoggedIn(data.loggedIn))
+    .catch(error => console.error('Error checking auth:', error));
 }, []);
 
 
-  return (
-    <div className="reviews-container">
-      <h2 className="text-2xl font-bold mb-4">User Reviews</h2>
-      {currentUser.name ? (
-        // Existing user can view and edit reviews
-        reviews.map((review, index) => (
+return (
+  <div className="reviews-container">
+    <h2 className="text-2xl font-bold mb-4">User Reviews</h2>
+    {loggedIn ? (
+      <>
+        <button onClick={() => setShowModal(true)}>Leave a Review</button> 
+        {showModal && <ReviewModal onClose={() => setShowModal(false)} />}
+        {reviews.map((review, index) => (
           <div key={index} className="review-card mb-4 p-4 border rounded">
             <h3 className="text-lg font-semibold">{review.movieTitle}</h3>
             <p className="text-sm text-gray-500">By: {review.userName}</p>
@@ -72,7 +77,8 @@ const Reviews = () => {
               </>
             )}
           </div>
-        ))
+        ))}
+        </>
       ) : (
         // New user or not signed in
         <div className="mt-4">

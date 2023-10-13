@@ -1,3 +1,5 @@
+import session from 'express-session';
+import { sessionStore } from './config/database';
 import cors from 'cors';
 
 import express from 'express';
@@ -22,6 +24,17 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+  key: 'user_sid',
+  secret: 'somerandomstuffs',
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: 600000 // or use maxAge
+  }
+}));
 
 // Test database connection
 sequelize.authenticate()

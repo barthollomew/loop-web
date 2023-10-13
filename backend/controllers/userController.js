@@ -50,3 +50,21 @@ export const deleteUser = async (req, res) => {
       res.status(500).json({ error: 'Server error' });
   }
 };
+
+export const checkAuth = (req, res) => {
+  if (req.session.user && req.cookies.user_sid) {
+      res.json({ loggedIn: true, user: req.session.user });
+  } else {
+      res.json({ loggedIn: false });
+  }
+};
+
+export const logout = (req, res) => {
+  if (req.session.user && req.cookies.user_sid) {
+      res.clearCookie('user_sid');
+      res.json({ message: 'Logged out' });
+  } else {
+      res.json({ message: 'No session found' });
+  }
+};
+

@@ -20,5 +20,6 @@ npm install
 npm install react-slick slick-carousel
 npm install cors
 npm install concurrently --save-dev
+npm install express-session mysql2
 npm start
 http://localhost:3000/
