@@ -1,0 +1,534 @@
+{
+  "result": [
+    {
+      "scriptId": "990",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/app.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 960,
+              "count": 1
+            },
+            {
+              "startOffset": 861,
+              "endOffset": 896,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "build",
+          "ranges": [
+            {
+              "startOffset": 96,
+              "endOffset": 517,
+              "count": 5
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "start",
+          "ranges": [
+            {
+              "startOffset": 544,
+              "endOffset": 778,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1204",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/routes/accounts.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2524,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "routes",
+          "ranges": [
+            {
+              "startOffset": 43,
+              "endOffset": 2497,
+              "count": 5
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 105,
+              "endOffset": 344,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 374,
+              "endOffset": 747,
+              "count": 5
+            },
+            {
+              "startOffset": 547,
+              "endOffset": 635,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 777,
+              "endOffset": 1266,
+              "count": 2
+            },
+            {
+              "startOffset": 1073,
+              "endOffset": 1262,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 1303,
+              "endOffset": 1985,
+              "count": 1
+            },
+            {
+              "startOffset": 1533,
+              "endOffset": 1612,
+              "count": 0
+            },
+            {
+              "startOffset": 1670,
+              "endOffset": 1689,
+              "count": 0
+            },
+            {
+              "startOffset": 1718,
+              "endOffset": 1737,
+              "count": 0
+            },
+            {
+              "startOffset": 1760,
+              "endOffset": 1776,
+              "count": 0
+            },
+            {
+              "startOffset": 1873,
+              "endOffset": 1981,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 2027,
+              "endOffset": 2493,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1205",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/models/index.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 1174,
+              "count": 1
+            },
+            {
+              "startOffset": 331,
+              "endOffset": 409,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 547,
+              "endOffset": 684,
+              "count": 5
+            },
+            {
+              "startOffset": 610,
+              "endOffset": 641,
+              "count": 4
+            },
+            {
+              "startOffset": 642,
+              "endOffset": 680,
+              "count": 4
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 697,
+              "endOffset": 825,
+              "count": 4
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 853,
+              "endOffset": 939,
+              "count": 4
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 967,
+              "endOffset": 1096,
+              "count": 4
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1423",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/config/config.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 638,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1517",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/models/account.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 746,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "module.exports",
+          "ranges": [
+            {
+              "startOffset": 17,
+              "endOffset": 744,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Account.associate",
+          "ranges": [
+            {
+              "startOffset": 608,
+              "endOffset": 722,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1518",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/models/movie.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 692,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "module.exports",
+          "ranges": [
+            {
+              "startOffset": 17,
+              "endOffset": 690,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Movie.associate",
+          "ranges": [
+            {
+              "startOffset": 443,
+              "endOffset": 666,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1519",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/models/review.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 560,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "module.exports",
+          "ranges": [
+            {
+              "startOffset": 17,
+              "endOffset": 556,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Review.associate",
+          "ranges": [
+            {
+              "startOffset": 290,
+              "endOffset": 529,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1520",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/models/showtime.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 469,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "module.exports",
+          "ranges": [
+            {
+              "startOffset": 17,
+              "endOffset": 465,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Showtime.associate",
+          "ranges": [
+            {
+              "startOffset": 307,
+              "endOffset": 436,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1521",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/routes/movies.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 464,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 144,
+              "endOffset": 351,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1616",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/routes/reviews.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2368,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 232,
+              "endOffset": 705,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 743,
+              "endOffset": 1174,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 1228,
+              "endOffset": 1841,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 1892,
+              "endOffset": 2339,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1617",
+      "url": "file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/routes/showtimes.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 485,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 150,
+              "endOffset": 369,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    }
+  ],
+  "timestamp": 56477.591959,
+  "source-map-cache": {}
+}

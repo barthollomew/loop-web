@@ -1,37 +1,38 @@
-// Import Fastify and plugins
-const fastify = require('fastify')({ logger: true });
+const fastify = require('fastify');
 const fastifyCors = require('fastify-cors');
 
-// Routers
-const accountsRouter = require('./routes/accounts');
-const moviesRouter = require('./routes/movies');
-const reviewsRouter = require('./routes/reviews');
-const showtimesRouter = require('./routes/showtimes');
+const build = () => {
+  const app = fastify({ logger: true });
 
-// Middlewares
-fastify.register(fastifyCors); // This plugin adds a simple cors() utility
+  // Middlewares
+  app.register(fastifyCors);
 
-// Routes
-fastify.register(accountsRouter, { prefix: '/api/accounts' });
-fastify.register(moviesRouter, { prefix: '/api/movies' });
-fastify.register(reviewsRouter, { prefix: '/api/reviews' });
-fastify.register(showtimesRouter, { prefix: '/api/showtimes' });
+  // Routes
+  app.register(require('./routes/accounts'), { prefix: '/api/accounts' });
+  app.register(require('./routes/movies'), { prefix: '/api/movies' });
+  app.register(require('./routes/reviews'), { prefix: '/api/reviews' });
+  app.register(require('./routes/showtimes'), { prefix: '/api/showtimes' });
+
+  return app;
+};
 
 // Server
 const start = async () => {
+  const app = build();
   try {
-    await fastify.listen(process.env.PORT || 3001);
-    fastify.log.info(`Server running on port ${fastify.server.address().port}`);
+    await app.listen(process.env.PORT || 3001);
+    app.log.info(`Server running on port ${app.server.address().port}`);
   } catch (err) {
-    fastify.log.error(err);
+    app.log.error(err);
     process.exit(1);
   }
 };
 
 // Check if file is being required or run directly
 if (require.main === module) {
-    start();
-  } else {
-    module.exports = { build: fastify };
-  }
-  
+  // Run the server!
+  start();
+} else {
+  // Export for testing
+  module.exports = { build };
+}

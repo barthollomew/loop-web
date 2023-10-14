@@ -1,0 +1,40 @@
+{
+  "date": "2023-10-14T06:53:31.983Z",
+  "argv": [
+    "/usr/local/bin/node",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/__tests__/backend.test.js"
+  ],
+  "execArgv": [
+    "--loader=file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/node_modules/ts-node/esm.mjs",
+    "--loader=file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/node_modules/@tapjs/mock/dist/esm/legacy-loader.mjs",
+    "--no-warnings",
+    "--enable-source-maps",
+    "--loader=file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/node_modules/@tapjs/processinfo/dist/esm/loader-legacy.mjs"
+  ],
+  "NODE_OPTIONS": "\"--loader=file:///Users/nathannguyen/RMIT%20Coding/loop-web/newLoopWeb/backend/node_modules/@tapjs/processinfo/dist/esm/loader-legacy.mjs\" \"--no-warnings\"",
+  "cwd": "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend",
+  "pid": 96343,
+  "ppid": 96342,
+  "parent": null,
+  "uuid": "ec388d5b-7d1c-4c27-9af9-821ab0d589c0",
+  "files": [
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/__tests__/backend.test.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/app.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/routes/accounts.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/models/index.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/config/config.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/models/account.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/models/movie.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/models/review.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/models/showtime.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/routes/movies.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/routes/reviews.js",
+    "/Users/nathannguyen/RMIT Coding/loop-web/newLoopWeb/backend/routes/showtimes.js"
+  ],
+  "sources": {},
+  "root": "ec388d5b-7d1c-4c27-9af9-821ab0d589c0",
+  "externalID": "__tests__/backend.test.js",
+  "code": 1,
+  "signal": null,
+  "runtime": 11927.622
+}
