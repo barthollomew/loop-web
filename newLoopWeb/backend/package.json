@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "tap __tests__/*.test.js",
     "start": "node app.js"
   },
   "keywords": [],
@@ -21,8 +21,6 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "pino-pretty": "^10.2.3",
-    "supertest": "^6.3.3",
-    "tap": "^18.5.0"
+    "supertest": "^6.3.3"
   }
 }
