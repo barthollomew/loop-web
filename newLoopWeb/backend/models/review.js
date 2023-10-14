@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Review.associate = (models) => {
     Review.belongsTo(models.Account, {
-      foreignKey: 'accountId',
+      foreignKey: 'account_id',
       onDelete: 'CASCADE'
     });
     Review.belongsTo(models.Movie, {
-      foreignKey: 'movieId',
+      foreignKey: 'movie_id',
       onDelete: 'CASCADE'
     });
   };

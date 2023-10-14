@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import ReviewModal from "./ReviewModal";
 import "./Reviews.css";
 
-export const deleteUserReviews = (userName) => {
-  fetch(`http://localhost:3001/api/reviews/user/${userName}`, {
+export const deleteUserReviews = (username) => {
+  fetch(`http://localhost:3001/api/reviews/user/${username}`, {
     method: "DELETE",
   })
     .then((response) => response.json())
@@ -62,8 +62,8 @@ const Reviews = () => {
           {showModal && <ReviewModal onClose={() => setShowModal(false)} />}
           {reviews.map((review, index) => (
             <div key={index} className="review-card mb-4 p-4 border rounded">
-              <h3 className="text-lg font-semibold">{review.Movie.title}</h3>
-              <p className="text-sm text-gray-500">By: {review.userName}</p>
+              <h3 className="text-lg font-semibold">{review.Movie ? review.Movie.title : 'Unknown Movie'}</h3>
+              <p className="text-sm text-gray-500">By: {review.username}</p>
               <div className="stars my-2">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <span key={star} className="mr-1">
@@ -72,7 +72,7 @@ const Reviews = () => {
                 ))}
               </div>
               <p>{review.content}</p>
-              {currentUser.username === review.userName && (
+              {currentUser.username === review.username && (
                 <>
                   <button
                     className="text-red-500 hover:underline ml-4"

@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   
     Movie.associate = (models) => {
       Movie.hasMany(models.Review, {
-        foreignKey: 'movieId',
+        foreignKey: 'movie_id',
         as: 'reviews'
       });
       Movie.hasMany(models.Showtime, {
-        foreignKey: 'movieId',
+        foreignKey: 'movie_id',
         as: 'showtimes'
       });
     };

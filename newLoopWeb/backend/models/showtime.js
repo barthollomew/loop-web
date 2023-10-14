@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Showtime.associate = (models) => {
     Showtime.belongsTo(models.Movie, {
-      foreignKey: 'movieId',
+      foreignKey: 'movie_id',
       onDelete: 'CASCADE'
     });
   };

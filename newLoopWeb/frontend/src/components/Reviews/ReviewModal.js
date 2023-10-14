@@ -3,7 +3,7 @@ import './ReviewModal.css';
 
 const ReviewModal = ({ onClose }) => {
     const [movies, setMovies] = useState([]);
-    const [selectedMovieId, setSelectedMovieId] = useState('');
+    const [selectedMovieid, setSelectedMovieid] = useState('');
     const [rating, setRating] = useState(0);
     const [comments, setComments] = useState('');
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
@@ -24,8 +24,8 @@ const ReviewModal = ({ onClose }) => {
         const review = {
             content: comments,
             rating,
-            accountId: currentUser.id, // Assuming the currentUser object has an id field
-            movieId: selectedMovieId
+            account_id: currentUser.id, // Assuming the currentUser object has an id field
+            movie_id: selectedMovieid
         };
 
         fetch('http://localhost:3001/api/reviews', {
@@ -50,7 +50,7 @@ const ReviewModal = ({ onClose }) => {
         <div className="review-modal-overlay">
             <div className="review-modal">
                 <h2>Review a Movie</h2>
-                <select onChange={(e) => setSelectedMovieId(e.target.value)}>
+                <select onChange={(e) => setSelectedMovieid(e.target.value)}>
                     <option value="">Select a movie...</option>
                     {movies.map(movie => (
                         <option key={movie.id} value={movie.id}>

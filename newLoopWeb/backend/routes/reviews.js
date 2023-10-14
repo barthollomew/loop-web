@@ -4,29 +4,42 @@ const router = express.Router();
 
 // GET reviews by username
 router.get('/user/:username', async (req, res) => {
-    try {
-        const { username } = req.params;
-        const reviews = await Review.findAll({
-            where: { userName: username }, // Assuming you have a userName field in your Review model
-            include: [Movie] // Including Movie details in the response if needed
-        });
-        res.status(200).json(reviews);
-    } catch (err) {
-        res.status(500).json({ message: 'Error retrieving reviews', error: err.message });
-    }
+  try {
+      const { username } = req.params;
+
+      // Find the user's ID by their username
+      const user = await Account.findOne({
+          where: { username: username }
+      });
+
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Find reviews by the user's ID
+      const reviews = await Review.findAll({
+          where: { account_id: user.id }, // Using the user's ID
+          include: [Movie] 
+      });
+
+      res.status(200).json(reviews);
+  } catch (err) {
+      res.status(500).json({ message: 'Error retrieving reviews', error: err.message });
+  }
 });
+
 
 // POST a review
 router.post('/', async (req, res) => {
   try {
-      const { content, rating, accountId, movieId } = req.body;
+      const { content, rating, account_id, movie_id } = req.body; // Update this
 
       // Log received payload for debugging
       console.log('Received payload:', req.body);
 
-      // Add additional validation as needed
+      // Add additional val_idation as needed
 
-      const newReview = await Review.create({ content, rating, accountId, movieId });
+      const newReview = await Review.create({ content, rating, account_id, movie_id }); // Update this
       res.status(201).json({ message: 'Review created!', review: newReview });
   } catch (err) {
       // Log detailed error information
@@ -39,14 +52,14 @@ router.post('/', async (req, res) => {
 
 
 // PUT (update) a review
-router.put('/:reviewId', async (req, res) => {
+router.put('/:review_id', async (req, res) => {
     try {
-        const { reviewId } = req.params;
+        const { review_id } = req.params;
         const { content, rating } = req.body;
 
-        // Add additional validation as needed
+        // Add additional val_idation as needed
 
-        const review = await Review.findByPk(reviewId);
+        const review = await Review.findByPk(review_id);
         if (!review) {
             return res.status(404).json({ message: 'Review not found' });
         }
@@ -62,11 +75,11 @@ router.put('/:reviewId', async (req, res) => {
 });
 
 // DELETE a review
-router.delete('/:reviewId', async (req, res) => {
+router.delete('/:review_id', async (req, res) => {
     try {
-        const { reviewId } = req.params;
+        const { review_id } = req.params;
 
-        const review = await Review.findByPk(reviewId);
+        const review = await Review.findByPk(review_id);
         if (!review) {
             return res.status(404).json({ message: 'Review not found' });
         }
