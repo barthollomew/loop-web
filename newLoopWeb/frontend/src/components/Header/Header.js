@@ -9,8 +9,20 @@ const Header = () => {
   const navigate = useNavigate(); // Using useNavigate for navigation
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    setCurrentUser(user);
+    // Function to update user state based on local storage
+    const updateUser = () => {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      setCurrentUser(user);
+    };
+    
+    // Add event listener for storage changes
+    window.addEventListener('storage', updateUser);
+
+    // Call updateUser to set initial user state
+    updateUser();
+
+    // Cleanup: remove event listener on component unmount
+    return () => window.removeEventListener('storage', updateUser);
   }, []);
 
   const handleSignOut = () => {

@@ -18,17 +18,25 @@ router.get('/user/:username', async (req, res) => {
 
 // POST a review
 router.post('/', async (req, res) => {
-    try {
-        const { content, rating, accountId, movieId } = req.body;
+  try {
+      const { content, rating, accountId, movieId } = req.body;
 
-        // Add additional validation as needed
+      // Log received payload for debugging
+      console.log('Received payload:', req.body);
 
-        const newReview = await Review.create({ content, rating, accountId, movieId });
-        res.status(201).json({ message: 'Review created!', review: newReview });
-    } catch (err) {
-        res.status(500).json({ message: 'Error creating review', error: err.message });
-    }
+      // Add additional validation as needed
+
+      const newReview = await Review.create({ content, rating, accountId, movieId });
+      res.status(201).json({ message: 'Review created!', review: newReview });
+  } catch (err) {
+      // Log detailed error information
+      console.error('Error creating review:', err);
+      console.error('Error stack:', err.stack);
+      
+      res.status(500).json({ message: 'Error creating review', error: err.message });
+  }
 });
+
 
 // PUT (update) a review
 router.put('/:reviewId', async (req, res) => {
