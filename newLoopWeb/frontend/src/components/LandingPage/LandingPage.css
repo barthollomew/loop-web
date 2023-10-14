@@ -1,0 +1,10 @@
+.landing-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: space-between; /* Space out your components evenly, if there's space available */
+    gap: 2rem; /* Give some gap between each section */
+    padding: 2rem 0; /* Provide some padding on top and bottom for breathing space */
+    margin-bottom: 50px;
+}

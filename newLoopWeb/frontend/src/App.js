@@ -1,26 +1,33 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-import MovieList from './components/MovieList';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import SignInPage from './components/SignInForm/SignInForm';
+import SignUpPage from './components/SignUpForm/SignUpForm';
+import LandingPage from './components/LandingPage/LandingPage';
+import ProfilePage from './components/Profile/ProfilePage/ProfilePage';
+import Movies from './components/Movies/Movies';  
+import Reviews from './components/Reviews/Reviews'
 
 function App() {
-    return (
-        <Router>
-            <div className="App">
-                <Header />
-                <div className="content">
-                    <Route path="/signin" component={SignIn} />
-                    <Route path="/signup" component={SignUp} />
-                    <Route exact path="/" component={MovieList} />
-                </div>
-                <Footer />
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/signIn' element={<SignInPage />} />
+          <Route path='/signUp' element={<SignUpPage />} />
+          <Route path='/Profile/ProfilePage' element={<ProfilePage />} />
+          <Route path='/movies' element={<Movies />} /> 
+          <Route path="/reviews" element={<Reviews />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;
