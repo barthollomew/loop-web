@@ -1,21 +1,19 @@
-// review.test.js
 const axios = require('axios');
+const { app, server } = require('../app'); 
 
-// Assuming you have a test user and movie in your database
 const TEST_USER_ID = 1;
 const TEST_MOVIE_ID = 1;
 
 test('should create a review and save it to the database', async () => {
-    // Review payload according to your new requirements
     const reviewPayload = {
-        content: '<b>Great Movie!</b> I really enjoyed watching it.', // formatted text
+        content: '<b>Great Movie!</b> I really enjoyed watching it.', 
         rating: 5,
         account_id: TEST_USER_ID,
         movie_id: TEST_MOVIE_ID
     };
 
     // Send the payload to your API
-    const response = await axios.post('http://localhost:3001/api/reviews', reviewPayload);
+    const response = await axios.post(`http://localhost:${server.address().port}/api/reviews`, reviewPayload);
 
     // Expectations
     expect(response.status).toBe(201);
@@ -38,10 +36,14 @@ test('should not allow reviews longer than 600 characters', async () => {
 
     // Send the payload to your API
     try {
-        await axios.post('http://localhost:3001/api/reviews', reviewPayload);
+        await axios.post(`http://localhost:${server.address().port}/api/reviews`, reviewPayload);
     } catch (error) {
         // Expectations
         expect(error.response.status).toBe(400); // Assuming your API returns 400 for validation errors
         expect(error.response.data.error).toBe('Review content exceeds the maximum length of 600 characters.');
     }
+});
+
+afterAll(() => {
+    server.close(); // Close the server after all tests have run
 });

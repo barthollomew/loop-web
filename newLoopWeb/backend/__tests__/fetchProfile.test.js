@@ -1,10 +1,13 @@
 const request = require('supertest');
-const app = require('../app');
+const { app, server } = require('../app'); 
 
 test('should fetch the correct user profile information', async () => {
     const response = await request(app)
-        .get('/api/accounts/profile/testUser') // Use your actual profile endpoint
+        .get('/api/accounts/profile/testUser') 
         .send();
     expect(response.statusCode).toBe(200);
-    // Additional assertions...
+});
+
+afterAll(() => {
+    server.close(); // Close the server after all tests have run
 });

@@ -1,14 +1,16 @@
 const request = require('supertest');
-const app = require('../app');
+const { app, server } = require('../app'); // Import your app
 
 test('should update user profile information', async () => {
     const response = await request(app)
-        .put('/api/accounts/update/testUser') // Use your actual update endpoint
+        .put(`/api/accounts/update/testUser`)
         .send({
             username: 'updatedUser',
             email: 'updated@email.com'
-            // Other fields...
         });
     expect(response.statusCode).toBe(200);
-    // Additional assertions...
+});
+
+afterAll(() => {
+    server.close(); // Close the server after all tests have run
 });
