@@ -1,30 +1,30 @@
-// models/review.js
-
-import { Sequelize, DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
-
-const Review = sequelize.define('Review', {
-    movieId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Movie',  
-            key: 'id'
-        }
-    },    
-    userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    text: {
-        type: DataTypes.TEXT,
-        allowNull: true
+module.exports = (sequelize, DataTypes) => {
+  const Review = sequelize.define('Review', {
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     rating: {
-        type: DataTypes.INTEGER,
-        allowNull: true
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
-    // Add other fields as needed
-});
+  }, {
+    // explicitly specify table name
+    tableName: 'reviews',
+    // disable automatic timestamp fields (createdAt and updatedAt)
+    timestamps: false
+  });
 
-export { Review };
+  Review.associate = (models) => {
+    Review.belongsTo(models.Account, {
+      foreignKey: 'account_id',
+      onDelete: 'CASCADE'
+    });
+    Review.belongsTo(models.Movie, {
+      foreignKey: 'movie_id',
+      onDelete: 'CASCADE'
+    });
+  };
+
+  return Review;
+};

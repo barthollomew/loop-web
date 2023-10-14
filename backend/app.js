@@ -1,73 +1,26 @@
-import session from 'express-session';
-import { sessionStore } from './config/database';
-import cors from 'cors';
-
-import express from 'express';
-import userRoutes from './routes/userRoutes.js';
-import reviewRoutes from './routes/reviewRoutes.js';
-import movieRoutes from './routes/movieRoutes.js';
-import sequelize from './config/database.js';
-
-// Importing models (just for clarity, even though it's not explicitly required for global sync)
-import './models/models.js';
-import './models/review.js';
-import './models/user.js';
-
-import Movie from './models/models.js';
-import { Review } from './models/review.js';
-import User from './models/user.js';
+const express = require('express');
+const cors = require('cors');
+const accountsRoutes = require('./routes/accounts');
+// Import other routes as needed
+const moviesRoutes = require('./routes/movies');
+const reviewsRoutes = require('./routes/reviews');
+const showtimesRoutes = require('./routes/showtimes');
 
 const app = express();
 
-// Use CORS middleware
 app.use(cors());
-
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
-  key: 'user_sid',
-  secret: 'somerandomstuffs',
-  store: sessionStore,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    expires: 600000 // or use maxAge
-  }
-}));
+// Routes
+app.use('/api/accounts', accountsRoutes);
+app.use('/api/movies', moviesRoutes);
+app.use('/api/reviews', reviewsRoutes);
+app.use('/api/showtimes', showtimesRoutes);
 
-// Test database connection
-sequelize.authenticate()
-    .then(() => {
-        console.log('Database connection established successfully.');
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
-
-// Sync the models in order of creation
-User.sync().then(() => {
-    Movie.sync().then(() => {
-        Review.sync().then(() => {
-            console.log("All tables created!");
-        });
-    });
-  });
-
-
-
-// API Routes
-app.use("/api/movies", movieRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/reviews", reviewRoutes);
-
-// Serve React App
-app.use(express.static("../build"));
-app.get("*", (req, res) => {
-  res.sendFile("index.html", { root: "../build" });
+// Start Server
+const PORT = process.env.PORT || 3001;
+const server = app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = { app, server };
