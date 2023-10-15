@@ -12,6 +12,5 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Additional routes for creating, updating, and deleting showtimes can be added here
 
 module.exports = router;

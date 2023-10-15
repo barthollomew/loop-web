@@ -12,6 +12,5 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Additional routes for creating, updating, and deleting movies can be added here
 
 module.exports = router;
